@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrasi</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container-regis">
+    <div class="regis-card">
     <h1>Registrasi</h1>
     <form action="" method="post">
         <label>Username</label>
@@ -18,6 +21,9 @@
         <input type="password" id="confirm_password" name="confirm_password" required><br><br>
 
         <input type="submit" value="Register">
+
+        </div>
+        </div>
     </form>
 </body>
 </html>
