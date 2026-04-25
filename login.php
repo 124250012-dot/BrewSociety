@@ -8,7 +8,7 @@
 
 <body>
     <h1>Login</h1>
-    <form action="login_process.php" method="post">
+    <form action="" method="post">
         <label>Username</label>
         <input type="text" id="username" name="username" required><br><br>
         
