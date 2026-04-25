@@ -10,7 +10,7 @@
     <div class="container-regis">
     <div class="regis-card">
     <h1>Registrasi</h1>
-    <form action="" method="post">
+    <form action="proses_registrasi.php" method="post">
         <label>Username</label>
         <input type="text" id="username" name="username" required><br><br>
 
