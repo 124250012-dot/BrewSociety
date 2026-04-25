@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Registrasi</title>
 </head>
-
 <body>
-    <h1>Login</h1>
-    <form action="login_process.php" method="post">
+    <h1>Registrasi</h1>
+    <form action="register_process.php" method="post">
         <label>Username</label>
         <input type="text" id="username" name="username" required><br><br>
-        
-        <label> Password:</label>
+
+        <label>Email</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label>Password</label>
         <input type="password" id="password" name="password" required><br><br>
 
-        <input type="submit" value="Login">
+        <input type="submit" value="Register">
     </form>
 </body>
 </html>
