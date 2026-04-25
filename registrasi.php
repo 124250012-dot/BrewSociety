@@ -11,11 +11,11 @@
         <label>Username</label>
         <input type="text" id="username" name="username" required><br><br>
 
-        <label>Email</label>
-        <input type="email" id="email" name="email" required><br><br>
-
         <label>Password</label>
         <input type="password" id="password" name="password" required><br><br>
+
+        <label>Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" required><br><br>
 
         <input type="submit" value="Register">
     </form>
