@@ -10,13 +10,11 @@
   font-style: normal;
 }
 
-
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
-
 
 .hero {
     background-image: url(https://i.pinimg.com/1200x/2b/5f/43/2b5f43b39083af8dffc4b6f0dcebc4c8.jpg);
@@ -67,16 +65,18 @@ body {
     max-height: 400px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
+
 .container-login{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
+
 .login-card{
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color:white;
     width: 500px;
     align-items: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
