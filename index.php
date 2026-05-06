@@ -44,15 +44,17 @@
     </section>
 
     <section id="about" class="about">
-      <section class="about-container">
+      <div class="about-container">
         <div class="about-deskripsi">
           <h1>About Us</h1>
           <p>Kami bekerja sama langsung dengan petani kopi lokal untuk memastikan kualitas terbaik</p>
         </div>
+      </div>
+      <div class="about-container">
         <div class="about-img">
           <img src="https://imgcdn.espos.id/@espos/images/2024/09/ilustrasi-kopi.jpg?quality=60" alt="kopi kita">
         </div>
-      </section>
+      </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script
