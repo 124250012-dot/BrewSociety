@@ -4,6 +4,14 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
     header("location: ../login.php?message=harus_login");
     exit();
 }
+
+
+
+include './koneksi.php';
+$query = "SELECT id_produk, kategori, nama_produk, harga, image FROM user";
+
+
+
 ?>
 
 <!doctype html>
