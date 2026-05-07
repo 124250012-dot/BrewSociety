@@ -1,16 +1,18 @@
 <?php
 session_start();
+include '../koneksi.php';
+
 if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
     header("location: ../login.php?message=harus_login");
     exit();
 }
 
+$query = "SELECT * FROM produk";
+$produk = $connect->query($query);
 
-
-include './koneksi.php';
-$query = "SELECT id_produk, kategori, nama_produk, harga, image FROM user";
-
-
+if(!$produk){
+    die("Query gagal: " . $connect->error);
+}
 
 ?>
 
@@ -51,8 +53,22 @@ $query = "SELECT id_produk, kategori, nama_produk, harga, image FROM user";
       </div>
     </nav>
 
-    
+    <?php
+    //fungsi 3
+    while($data = $produk->fetch_object()){ //looping objek
+    ?>
+      <div class="card" style="width: 18rem;">
+        <img src="<?= $data->image; ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title"><?= $data->nama_produk;?></h5>
+            <p class="card-text"><?= $data->harga;?></p>
+            <a href="#" class="btn btn-primary">Pesan</a>
+          </div>
+        </div>
+        <?php
+    }
+    ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>
