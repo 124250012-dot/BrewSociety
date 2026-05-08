@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../koneksi.php';
+include './koneksi.php';
 
 if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
     header("location: ../login.php?message=harus_login");
@@ -39,7 +39,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
                 <a class="nav-link" href="#about">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../logout.php">Login</a>
+                <a class="nav-link" href="../logout.php">Logout</a>
               </li>
             </ul>
           </div>
