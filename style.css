@@ -43,8 +43,18 @@ body {
     font-family: Georgia;
 }
 
-.about-deskripsi {
+.about-deskripsi h1 {
     color: white;
+    font-family: "Tangerine", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 7rem;
+}
+
+.about-deskripsi p {
+    color: white;
+    font-size: 1.5rem;
+    font-family: Georgia;
 }
 
 .about {
@@ -110,3 +120,19 @@ body {
     padding: 10px;
     border-radius: 10px; 
 }
+
+.card-container {
+    display: flex;
+    align-items: center; /*tengah vertikal*/
+    justify-content: center; /*tengah horizontal*/
+    min-height: 100vh;
+    background: rgb(81, 66, 57);
+    max-width: 100%;
+}
+
+.card {
+    padding: 10px;
+    width: 500px;
+    height: 300px;
+}
+

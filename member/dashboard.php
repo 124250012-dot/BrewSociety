@@ -46,7 +46,10 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
       </div>
     </nav>
 
-    <?php
+    <section class="mt-5">
+
+      
+      <?php
       $queryKategori = "SELECT DISTINCT kategori FROM produk";
       $datakategori = $connect->query($queryKategori);
 
@@ -55,13 +58,13 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
 
         $queryProduk = "SELECT * FROM produk WHERE kategori = '" . $kategori->kategori . "'";
         $produk = $connect->query($queryProduk);
-
+        
         while($data = $produk->fetch_object()){
     ?>
           <div class="card" style="width: 18rem;">
             <img src="<?= $data->image; ?>" class="card-img-top" alt="...">
             <div class="card-body">
-             <h5 class="card-title"><?= $data->nama_produk;?></h5>
+              <h5 class="card-title"><?= $data->nama_produk;?></h5>
              <p class="card-text"><?= $data->harga;?></p>
              <a href="#" class="btn btn-primary">Pesan</a>
             </div>
@@ -69,7 +72,8 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
     <?php
         }
       }
-    ?>
+      ?>
+      </section>
         
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
