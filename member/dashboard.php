@@ -1,6 +1,6 @@
 <?php
 session_start();
-include './koneksi.php';
+include '../koneksi.php';
 
 if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
     header("location: ../login.php?message=harus_login");
@@ -46,9 +46,37 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
       </div>
     </nav>
 
-    <section class="mt-5">
 
-      
+    <section class="dashboard-carousel mt-5">
+    <div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="card">
+        <img src="https://imgcdn.espos.id/@espos/images/2024/09/ilustrasi-kopi.jpg?quality=60" class="d-block w-100" alt="bestseller">
+        <div class="card-body">
+          <h5 class="card-title">Welcome to Brew Society</h5>
+          <p class="card-text">Discover the finest coffee blends and brewing techniques with us.</p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</section>
+
       <?php
       $queryKategori = "SELECT DISTINCT kategori FROM produk";
       $datakategori = $connect->query($queryKategori);
@@ -73,7 +101,6 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
         }
       }
       ?>
-      </section>
         
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
