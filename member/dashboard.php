@@ -60,10 +60,10 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
       </div>
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="Rekomendasi-1.png" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="Rekomendasi-2.png" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -76,6 +76,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
   </button>
 </div>
 </section>
+
 
       <?php
       $queryKategori = "SELECT DISTINCT kategori FROM produk";
