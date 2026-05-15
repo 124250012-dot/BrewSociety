@@ -21,7 +21,6 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
   </head>
-
   <body>
     <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary bg-dark px-5" data-bs-theme="dark">
       <div class="container-fluid">
@@ -96,19 +95,17 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
           while($data = $produk->fetch_object()): ?>
             
             <div class="col">
-              <div class="card h-100 product-card">
+              <div class="card h-100 product-card w-100">
                 <img src="<?= $data->image; ?>" class="card-img-top product-img" alt="<?= $data->nama_produk; ?>">
-                <div class="card-body d-flex flex-column">
+                <div class="card-body d-flex flex-column text-center">
                   <h5 class="card-title fs-6"><?= $data->nama_produk;?></h5>
                   <p class="card-text fw-bold text-success">Rp <?= number_format($data->harga, 0, ',', '.');?></p>
-                  <a href="#" class="btn btn-dark mt-auto w-100">Pesan</a>
+                  <a href="#" class="btn btn-dark mt-auto" style="width: 10rem;">Pesan</a>
                 </div>
               </div>
             </div>
-
           <?php endwhile; ?>
         </div>
-
       <?php endwhile; ?>
     </main>
 

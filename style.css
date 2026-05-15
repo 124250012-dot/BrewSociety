@@ -163,7 +163,7 @@ body {
 
 .product-card {
     transition: transform 0.3s;
-    border-radius: 15px;
+    border-radius:  15px 15px 15px 15px;
     box-shadow: 0 5px 20px rgb(94, 86, 86);
 }
 
@@ -172,6 +172,7 @@ body {
 }
 
 .product-img {
-    height: 200px;
+    height: 300px;
     object-fit: cover;
+    border-radius:  15px 15px 0 0;
 }
