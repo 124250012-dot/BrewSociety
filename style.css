@@ -85,22 +85,23 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.container-login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.login-container{
     min-height: 100vh;
-}
-
-.login-card{
     display: flex;
     flex-direction: column;
-    background-color:white;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(102, 23, 23, 0.881);
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
     width: 500px;
     align-items: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    padding: 20px;
     border-radius: 10px;
+    min-height: 70vh;
 }
 
 .container-regis{
