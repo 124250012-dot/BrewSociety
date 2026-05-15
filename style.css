@@ -159,6 +159,23 @@ body {
     padding-left: 15px;
     margin-bottom: 25px;
     font-weight: bold;
+    font-family: "Bree Serif", Georgia, "Times New Roman", serif;
+}
+
+.product-card .card-title {
+    font-family: "Bree Serif", Georgia, "Times New Roman", serif;
+}
+
+.welcome-card .welcome-title {
+    font-family: "Bree Serif", Georgia, "Times New Roman", serif;
+    letter-spacing: 0.2px;
+    font-size: 2rem;
+}
+
+.welcome-card .welcome-subtitle {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 1.1rem;
+    margin-bottom: 0;
 }
 
 .product-card {

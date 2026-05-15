@@ -9,7 +9,7 @@
   </head>
   <body>
 
-   <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary bg-dark px-5" data-bs-theme="dark">
+   <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary bg-dark px-5" data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Brew Society</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
