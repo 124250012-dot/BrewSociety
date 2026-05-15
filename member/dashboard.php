@@ -19,7 +19,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
   </head>
 
   <body>
@@ -33,10 +33,13 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                <a class="nav-link active" href="index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#about">About Us</a>
+                <a class="nav-link active" aria-current="page" href="#about">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">Riwayat</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="../logout.php">Logout</a>
@@ -51,21 +54,21 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
     <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <div class="card">
         <img src="https://imgcdn.espos.id/@espos/images/2024/09/ilustrasi-kopi.jpg?quality=60" class="d-block w-100" alt="bestseller">
-        <div class="card-body">
-          <h5 class="card-title">Welcome to Brew Society</h5>
-          <p class="card-text">Discover the finest coffee blends and brewing techniques with us.</p>
-        </div>
-      </div>
+          <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.5); border-radius: 10px;">
+              <h5>Welcome to Brew Society</h5>
+              <p>Discover the finest coffee blends and brewing techniques with us.</p>
+          </div>       
+    </div>
+
+    <div class="carousel-item">
+      <img src="Rekomendasi-1.png" class="d-block w-100" alt="bestseller 1">
     </div>
     <div class="carousel-item">
-      <img src="Rekomendasi-1.png" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="Rekomendasi-2.png" class="d-block w-100" alt="...">
+      <img src="Rekomendasi-2.png" class="d-block w-100" alt="bestseller 2">
     </div>
   </div>
+
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -77,31 +80,39 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
 </div>
 </section>
 
-
+<main class="container mb-5">
       <?php
       $queryKategori = "SELECT DISTINCT kategori FROM produk";
       $datakategori = $connect->query($queryKategori);
 
-      while($kategori = $datakategori->fetch_object()){
-        echo "<h2>" . $kategori->kategori . "</h2>";
-
-        $queryProduk = "SELECT * FROM produk WHERE kategori = '" . $kategori->kategori . "'";
-        $produk = $connect->query($queryProduk);
+      while($kategori = $datakategori->fetch_object()): ?>
         
-        while($data = $produk->fetch_object()){
-    ?>
-          <div class="card" style="width: 18rem;">
-            <img src="<?= $data->image; ?>" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"><?= $data->nama_produk;?></h5>
-             <p class="card-text"><?= $data->harga;?></p>
-             <a href="#" class="btn btn-primary">Pesan</a>
+        <h2 class="category-title mt-5"><?= $kategori->kategori; ?></h2>
+        
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+          <?php
+          $queryProduk = "SELECT * FROM produk WHERE kategori = '" . $kategori->kategori . "'";
+          $produk = $connect->query($queryProduk);
+          while($data = $produk->fetch_object()): ?>
+            
+            <div class="col">
+              <div class="card h-100 product-card">
+                <img src="<?= $data->image; ?>" class="card-img-top product-img" alt="<?= $data->nama_produk; ?>">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title fs-6"><?= $data->nama_produk;?></h5>
+                  <p class="card-text fw-bold text-success">Rp <?= number_format($data->harga, 0, ',', '.');?></p>
+                  <a href="#" class="btn btn-dark mt-auto w-100">Pesan</a>
+                </div>
+              </div>
             </div>
-          </div>
-    <?php
-        }
-      }
-      ?>
+
+          <?php endwhile; ?>
+        </div>
+
+      <?php endwhile; ?>
+    </main>
+
+    
         
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>

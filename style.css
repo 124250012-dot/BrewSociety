@@ -91,7 +91,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(102, 23, 23, 0.881);
+    background: rgb(43, 37, 33);
 }
 
 .card{
@@ -104,11 +104,12 @@ body {
     min-height: 70vh;
 }
 
-.container-regis{
+.regis-container{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh; 
+    background: rgb(43, 37, 33);
 }
 
 .regis-card{
@@ -124,16 +125,53 @@ body {
 
 .card-container {
     display: flex;
-    align-items: center; /*tengah vertikal*/
-    justify-content: center; /*tengah horizontal*/
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
     background: rgb(81, 66, 57);
     max-width: 100%;
 }
 
-.card {
-    padding: 10px;
-    width: 500px;
-    height: 300px;
+.dashboard-carousel {
+    max-width: 700px;
+    margin: 80px auto 40px;
 }
 
+.carousel-inner {
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.dashboard-carousel .carousel-item {
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.dashboard-carousel .carousel-item img {
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.category-title {
+    border-left: 5px solid #bc9494;
+    padding-left: 15px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.product-card {
+    transition: transform 0.3s;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgb(94, 86, 86);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-img {
+    height: 200px;
+    object-fit: cover;
+}

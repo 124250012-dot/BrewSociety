@@ -9,6 +9,23 @@
   </head>
   <body>
 
+   <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary bg-dark px-5" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Brew Society</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.php">Home</a>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </nav>
+
     <section class="login-container">
       <div class="card" style="width: 30rem;">
       <div class="card-body" style="width: 100%;">

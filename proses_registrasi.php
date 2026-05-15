@@ -15,7 +15,7 @@ VALUES ('member', '$username', '$password')";
 $result = mysqli_query($connect, $query);
 
 if($result){
-    header("location: login.php?message=register_berhasil");
+    header("location: registrasi.php?message=register_berhasil");
 } else {
     header("location: registrasi.php?message=register_gagal");
 }
