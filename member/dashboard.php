@@ -106,7 +106,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
                 <div class="card-body d-flex flex-column text-center">
                   <h5 class="card-title fs-6"><?= $data->nama_produk;?></h5>
                   <p class="card-text fw-bold text-success">Rp <?= number_format($data->harga, 0, ',', '.');?></p>
-                  <a href="#" class="btn btn-dark mt-auto" style="width: 10rem;">Pesan</a>
+                  <a href="pemesanan.php?id_produk=<?= $data->id_produk;?>" class="btn btn-dark mt-auto" style="width: 10rem;">Pesan</a>
                 </div>
               </div>
             </div>
