@@ -193,3 +193,32 @@ body {
     object-fit: cover;
     border-radius:  15px 15px 0 0;
 }
+
+main.container {
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin: 100px auto 50px !important;
+    display: block !important;
+}
+
+main.container .card {
+    width: 100% !important;  
+    min-height: auto !important; 
+    display: block !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+    background-color: #ffffff !important;
+}
+
+main.container .table-responsive {
+    width: 100% !important;
+}
+
+main.container table {
+    width: 100% !important;
+    margin-bottom: 0 !important;
+}
+
+main.container th, main.container td {
+    padding: 12px 15px !important;
+    white-space: nowrap;
+}

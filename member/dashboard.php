@@ -32,13 +32,13 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="index.php">Home</a>
+                <a class="nav-link active" href=".../index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#about">Dashboard</a>
+                <a class="nav-link active" aria-current="page" href="dashboard.php">Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#about">Riwayat</a>
+                <a class="nav-link" href="riwayat.php">Riwayat</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="../logout.php">Logout</a>

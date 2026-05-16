@@ -11,19 +11,21 @@ $result = mysqli_query($connect, $query);
 
 if(mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_assoc($result);
+
+    $_SESSION['username'] = $username;
+    $_SESSION['role'] = $row['role'];
+    $_SESSION['status'] = 'login';
+    $_SESSION['id_user'] = $row['id_user'];
+
+
     if ($role == 'kasir') {
-        $_SESSION['username'] = $username;
-        $_SESSION['role'] = $row['role'];
-        $_SESSION['status'] = 'login';
         header("location: kasir/dashboard.php?message=login_berhasil");
         exit();
     } else if ($role == 'member') {
-        $_SESSION['username'] = $username;
-        $_SESSION['role'] = $row['role'];
-        $_SESSION['status'] = 'login';
         header("location: member/dashboard.php?message=login_berhasil");
+        exit();
     }
 } else {
     header("location: login.php?message=login_gagal");
+    exit();
 }
-?>
