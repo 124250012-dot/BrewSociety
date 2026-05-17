@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2026 at 05:23 AM
+-- Generation Time: May 17, 2026 at 03:46 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,18 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemesanan`
+-- Table structure for table `pesanan`
 --
 
-CREATE TABLE `pemesanan` (
-  `id_pesan` int(3) NOT NULL,
-  `nama_produk` varchar(50) NOT NULL,
-  `harga` int(10) NOT NULL,
-  `jumlah` int(5) NOT NULL,
+CREATE TABLE `pesanan` (
+  `id_pesanan` int(3) NOT NULL,
+  `id_produk` int(3) NOT NULL,
+  `id_user` int(3) NOT NULL,
   `catatan` text NOT NULL,
-  `status` varchar(20) DEFAULT 'waiting',
-  `id_produk` int(3) NOT NULL
+  `jumlah` int(5) NOT NULL,
+  `total_harga` int(20) NOT NULL,
+  `metode_pembayaran` varchar(30) NOT NULL,
+  `status_pesanan` varchar(30) NOT NULL DEFAULT 'menunggu',
+  `tanggal_pesanan` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pesanan`
+--
+
+INSERT INTO `pesanan` (`id_pesanan`, `id_produk`, `id_user`, `catatan`, `jumlah`, `total_harga`, `metode_pembayaran`, `status_pesanan`, `tanggal_pesanan`) VALUES
+(1, 7, 2, '', 1, 25000, 'Cashless/QRIS', 'selesai', NULL),
+(2, 6, 2, 'less ice', 4, 100000, 'Cashless/QRIS', 'selesai', NULL);
 
 -- --------------------------------------------------------
 
@@ -91,15 +101,24 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `role`, `username`, `password`) VALUES
+(1, 'member', 'aini', 'aini123'),
+(2, 'kasir', 'admin', 'admin123');
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `pemesanan`
+-- Indexes for table `pesanan`
 --
-ALTER TABLE `pemesanan`
-  ADD PRIMARY KEY (`id_pesan`),
-  ADD KEY `fk_produk` (`id_produk`);
+ALTER TABLE `pesanan`
+  ADD PRIMARY KEY (`id_pesanan`),
+  ADD KEY `id_produk` (`id_produk`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `produk`
@@ -118,10 +137,10 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `pemesanan`
+-- AUTO_INCREMENT for table `pesanan`
 --
-ALTER TABLE `pemesanan`
-  MODIFY `id_pesan` int(3) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `pesanan`
+  MODIFY `id_pesanan` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `produk`
@@ -133,17 +152,18 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `pemesanan`
+-- Constraints for table `pesanan`
 --
-ALTER TABLE `pemesanan`
-  ADD CONSTRAINT `fk_produk` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
+ALTER TABLE `pesanan`
+  ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`),
+  ADD CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
