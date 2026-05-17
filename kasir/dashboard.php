@@ -58,7 +58,7 @@ $tampil_pesanan = mysqli_query($connect, $query);
           <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
             <div class="card-body p-0">
               <div class="table-responsive">
-                <table class="table table-hover align-middle mb-0">
+                <table class="table table-hover align-middle mb-0 style="min-width: 800px;">
                   <thead class="table-dark">
                     <tr>
                       <th class="ps-4 py-3">Pelanggan</th>
@@ -132,6 +132,12 @@ $tampil_pesanan = mysqli_query($connect, $query);
       </div>
     </main>
 
+    <footer class="bg-dark text-white text-center py-2 w-100" data-bs-theme="dark">
+        <div class="container">
+          <p>&copy; 2026 Brew Society. All rights reserved.</p>
+        </div>
+    </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

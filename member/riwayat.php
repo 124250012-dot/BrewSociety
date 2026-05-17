@@ -83,8 +83,8 @@ $tampil_riwayat = mysqli_query($connect, $query);
                   <th class="pe-4 text-center">Status</th>
                 </tr>
               </thead>
+
               <tbody>
-                
                 <?php 
                 // ngecek apakah user udah punya riwayat transaksi
                 if(mysqli_num_rows($tampil_riwayat) > 0):
@@ -137,6 +137,12 @@ $tampil_riwayat = mysqli_query($connect, $query);
         </div>
       </div>
     </main>
+
+    <footer class="bg-dark text-white text-center py-2 w-100" data-bs-theme="dark">
+      <div class="container">
+        <p>&copy; 2026 Brew Society. All rights reserved.</p>
+      </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>

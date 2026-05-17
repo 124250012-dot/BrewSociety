@@ -69,7 +69,7 @@ body {
     gap: 50px;
 }
 
-.abut-container {
+.about-container {
     height: 500px;
     width: 600px;
     display: flex;
@@ -83,6 +83,68 @@ body {
     max-width: 550px;
     max-height: 400px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.contact {
+    padding: 80px 50px;
+    
+    background-size: cover; 
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+.contact-deskripsi {
+    flex: 1;
+}
+
+.contact-deskripsi h3 {
+    color: white;
+    font-family: "Tangerine", cursive;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 5rem;
+}
+
+.contact-deskripsi p {
+    color: white;
+    font-size: 1rem;
+    font-family: Georgia;
+    max-width: 300px;
+}
+
+.contact-info{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.contact-icon ,.contact-social  {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-icon p,.contact-social p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    font-size: 1rem;
+    font-family: Georgia;
+    margin: 0;
+    white-space: nowrap;
 }
 
 .login-container{

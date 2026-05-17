@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   </head>
 
   <body>
@@ -26,6 +27,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#about">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact Us</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="login.php">Login</a>
@@ -56,6 +60,33 @@
         </div>
       </div>
     </section>
+
+    <section id="contact" class="contact bg-dark" data-bs-theme="dark">
+      <div class="contact-container" >
+        <div class="contact-deskripsi">
+          <h3>Contact Us</h3>
+          <p>Hubungi kami untuk informasi lebih lanjut atau pesanan khusus.</p>
+        </div>
+        <div class="contact-info">
+        <div class="contact-icon">
+          <p><i class="bi bi-envelope"></i> info@brewsociety.com</p>
+          <p><i class="bi bi-telephone"></i> (123) 456-7890</p>
+          <p><i class="bi bi-geo-alt"></i> Jl. Kopi No. 123, Yogyakarta</p>
+        </div>
+        <div class="contact-social">
+          <p><i class="bi bi-instagram"></i> @brewsociety</p>
+          <p><i class="bi bi-twitter-x"></i> @brewsociety</p>
+          <p><i class="bi bi-tiktok"></i> @brewsociety</p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-2 w-100" data-bs-theme="dark">
+      <div class="container">
+        <p>&copy; 2026 Brew Society. All rights reserved.</p>
+      </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script
   </body>
