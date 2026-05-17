@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 17, 2026 at 03:46 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost:3306
+-- Generation Time: May 17, 2026 at 12:52 PM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,24 +28,25 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `pesanan` (
-  `id_pesanan` int(3) NOT NULL,
-  `id_produk` int(3) NOT NULL,
-  `id_user` int(3) NOT NULL,
-  `catatan` text NOT NULL,
-  `jumlah` int(5) NOT NULL,
-  `total_harga` int(20) NOT NULL,
-  `metode_pembayaran` varchar(30) NOT NULL,
-  `status_pesanan` varchar(30) NOT NULL DEFAULT 'menunggu',
-  `tanggal_pesanan` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id_pesanan` int NOT NULL,
+  `id_produk` int NOT NULL,
+  `id_user` int NOT NULL,
+  `catatan` text,
+  `jumlah` int NOT NULL,
+  `total_harga` int NOT NULL,
+  `metode_pembayaran` varchar(50) NOT NULL,
+  `status_pesanan` varchar(20) DEFAULT 'menunggu',
+  `tanggal_pesanan` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `pesanan`
 --
 
 INSERT INTO `pesanan` (`id_pesanan`, `id_produk`, `id_user`, `catatan`, `jumlah`, `total_harga`, `metode_pembayaran`, `status_pesanan`, `tanggal_pesanan`) VALUES
-(1, 7, 2, '', 1, 25000, 'Cashless/QRIS', 'selesai', NULL),
-(2, 6, 2, 'less ice', 4, 100000, 'Cashless/QRIS', 'selesai', NULL);
+(1, 5, 8, 'less ice', 2, 52000, 'Cashless/QRIS', 'selesai', '2026-05-16 20:43:25'),
+(2, 13, 8, '', 1, 18000, 'Cashless/QRIS', 'selesai', '2026-05-16 20:51:58'),
+(3, 2, 6, '', 1, 23000, 'Cashless/QRIS', 'selesai', '2026-05-16 20:59:26');
 
 -- --------------------------------------------------------
 
@@ -54,11 +55,11 @@ INSERT INTO `pesanan` (`id_pesanan`, `id_produk`, `id_user`, `catatan`, `jumlah`
 --
 
 CREATE TABLE `produk` (
-  `id_produk` int(3) NOT NULL,
-  `kategori` varchar(20) NOT NULL,
-  `nama_produk` varchar(50) NOT NULL,
-  `harga` int(10) NOT NULL,
-  `image` text NOT NULL
+  `id_produk` int NOT NULL,
+  `kategori` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_produk` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `harga` int NOT NULL,
+  `image` text COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -94,10 +95,10 @@ INSERT INTO `produk` (`id_produk`, `kategori`, `nama_produk`, `harga`, `image`) 
 --
 
 CREATE TABLE `user` (
-  `id_user` int(3) NOT NULL,
-  `role` varchar(10) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `id_user` int NOT NULL,
+  `role` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -105,8 +106,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `role`, `username`, `password`) VALUES
-(1, 'member', 'aini', 'aini123'),
-(2, 'kasir', 'admin', 'admin123');
+(4, 'kasir', 'etmin', 'etmin'),
+(5, 'member', 'nadya', '123'),
+(6, 'member', 'gildas', '000'),
+(7, 'member', 'tsaqif', '777'),
+(8, 'member', 'halo', 'hai');
 
 --
 -- Indexes for dumped tables
@@ -140,19 +144,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_pesanan` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pesanan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_produk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -162,8 +166,8 @@ ALTER TABLE `user`
 -- Constraints for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`),
-  ADD CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+  ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`) ON DELETE CASCADE,
+  ADD CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
